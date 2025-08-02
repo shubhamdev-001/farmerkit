@@ -103,8 +103,8 @@ WSGI_APPLICATION = 'farmerkit.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:shub@localhost:5432/farmerkit',  # fallback for local
-        conn_max_age=600
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 

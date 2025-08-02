@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from datetime import timedelta
 import os
 from pathlib import Path
+import socket
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -101,12 +102,27 @@ WSGI_APPLICATION = 'farmerkit.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.parse(
-        "postgresql://farmerkit_db_user:NDqSc0f5hiroC3fEqxJLPIl1xdJKmQEm@dpg-d2709m63jp1c73doqqc0-a/farmerkit_db"
-    )
-}
+IS_RENDER = socket.gethostname().startswith("render") or "RENDER" in socket.gethostname().upper()
 
+if IS_RENDER:
+    # Production on Render
+    DATABASES = {
+        'default': dj_database_url.parse(
+            "postgresql://farmerkit_db_user:NDqSc0f5hiroC3fEqxJLPIl1xdJKmQEm@dpg-d2709m63jp1c73doqqc0-a/farmerkit_db"
+        )
+    }
+else:
+    # Local development (you must install PostgreSQL locally)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'farmerkit_db',
+            'USER': 'postgres',
+            'PASSWORD': 'your_local_postgres_password',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

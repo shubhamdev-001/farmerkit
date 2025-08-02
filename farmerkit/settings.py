@@ -116,7 +116,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'farmerkit_db',
+            'NAME': 'farmerkit',
             'USER': 'postgres',
             'PASSWORD': 'shub',
             'HOST': 'localhost',

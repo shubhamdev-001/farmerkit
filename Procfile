@@ -1,1 +1,0 @@
-gunicorn farmerkit.farmerkit.wsgi

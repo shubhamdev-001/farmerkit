@@ -102,26 +102,10 @@ WSGI_APPLICATION = 'farmerkit.wsgi.application'
 #     }
 # }
 
-IS_RENDER = socket.gethostname().startswith("render") or "RENDER" in socket.gethostname().upper()
-
-if IS_RENDER:
-    # Production on Render
-    DATABASES = {
+DATABASES = {
         'default': dj_database_url.parse(
             "postgresql://farmerkit_db_user:NDqSc0f5hiroC3fEqxJLPIl1xdJKmQEm@dpg-d2709m63jp1c73doqqc0-a/farmerkit_db"
         )
-    }
-else:
-    # Local development (you must install PostgreSQL locally)
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'farmerkit',
-            'USER': 'postgres',
-            'PASSWORD': 'shub',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
     }
 
 # Password validation

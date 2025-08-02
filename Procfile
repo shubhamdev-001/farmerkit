@@ -1,1 +1,1 @@
-gunicorn farmerkit.farmerkit.wsgi
+web: gunicorn farmerkit.wsgi

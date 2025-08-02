@@ -90,17 +90,23 @@ WSGI_APPLICATION = 'farmerkit.wsgi.application'
 #     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'farmerkit',
-        'USER': 'postgres',
-        'PASSWORD': 'shub',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'farmerkit',
+#         'USER': 'postgres',
+#         'PASSWORD': 'shub',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgresql://postgres:shub@localhost:5432/farmerkit',  # fallback for local
+        conn_max_age=600
+    )
+}
 
 
 # Password validation
@@ -170,8 +176,7 @@ SIMPLE_JWT = {
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

@@ -90,23 +90,23 @@ WSGI_APPLICATION = 'farmerkit.wsgi.application'
 #     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'farmerkit',
-#         'USER': 'postgres',
-#         'PASSWORD': 'shub',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'farmerkit',
+        'USER': 'postgres',
+        'PASSWORD': 'shub',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         conn_max_age=600,
+#         ssl_require=True
+#     )
+# }
 
 
 # Password validation

@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'farmerkit.wsgi.application'
 
 DATABASES = {
         'default': dj_database_url.parse(
-            "postgresql://farmerkit_db_user:NDqSc0f5hiroC3fEqxJLPIl1xdJKmQEm@dpg-d2709m63jp1c73doqqc0-a/farmerkit_db"
+            "postgresql://farmerkit_db_user:NDqSc0f5hiroC3fEqxJLPIl1xdJKmQEm@dpg-d2709m63jp1c73doqqc0-a.oregon-postgres.render.com/farmerkit_db"
         )
     }
 

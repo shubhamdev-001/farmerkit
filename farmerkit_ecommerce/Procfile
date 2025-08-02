@@ -1,2 +1,4 @@
-gunicorn farmerkit_ecommerce.farmerkit.wsgi
+web: gunicorn farmerkit.farmerkit.wsgi
+
+
 

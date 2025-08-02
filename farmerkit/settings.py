@@ -118,7 +118,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'farmerkit_db',
             'USER': 'postgres',
-            'PASSWORD': 'your_local_postgres_password',
+            'PASSWORD': 'shub',
             'HOST': 'localhost',
             'PORT': '5432',
         }
